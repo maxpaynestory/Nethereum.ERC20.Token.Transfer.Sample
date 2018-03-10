@@ -20,13 +20,13 @@ namespace EthereumWalletApp
             var coinOwnerAddress = "0xe9fa5c9b698433d9267d0d8cf640b55e4f18ce21";
             var coinOwnerPrivateKey = "72c642d4552a4e782db10fdbcf8a82ee771d9e830b143b8fa28a04fb0ba2cdcc";
 
-            /* get balance of token creator */
+            /* get balance of token owner */
             var ownerBalanceTask = client.getAccountBalance(coinOwnerAddress,contractAddress);
             var ownerBalance = ownerBalanceTask.Result.ToString();
             Console.WriteLine("Balance of token creator :" + ownerBalance);
             
             /* transfer 100 tokens */
-            var transactionHashTask = client.transferTokens(coinOwnerAddress, coinOwnerPrivateKey, toAddress, contractAddress,10000);
+            var transactionHashTask = client.transferTokens(coinOwnerAddress, coinOwnerPrivateKey, toAddress, contractAddress,100);
             var transactionHash = transactionHashTask.Result.ToString();
             Console.WriteLine("Transaction hash: " + transactionHash);
 
@@ -35,7 +35,7 @@ namespace EthereumWalletApp
             var tokenBalance = tokenBalanceTask.Result.ToString();
             Console.WriteLine("Balance is :" + tokenBalance);
 
-            /* get balance of token creator */
+            /* get balance of token owner */
             ownerBalanceTask = client.getAccountBalance(coinOwnerAddress,contractAddress);
             ownerBalance = ownerBalanceTask.Result.ToString();
             Console.WriteLine("Balance of token creator :" + ownerBalance);
